@@ -2,19 +2,19 @@
 @using VendorOrders.Models;
 
 <h3>Here are your vendor details:</h3>
-@* 
-<p>Name: @Model.vendor.Name</p>
-<p>Address: @Model.vendor.Address</p>
-<p>Phone: @Model.vendor.Phone</p>
-<p>Email: @Model.vendor.Email</p>
-<ol>
-   *@
+
+<p>Name: @Model["vendor"].Name</p>
+<p>Address: @Model["vendor"].Address</p>
+<p>Phone: @Model["vendor"].Phone</p>
+<p>Email: @Model["vendor"].Email</p>
+
+<ol>  
 @foreach (Order order in @Model["orders"])
 {
   <li><a href='/vendors/@Model["vendor"].Id/orders/@order.Id'>@order.Product</a></li>
 }
 </ol>
 
-<p><a href='/vendors/@Model["vendor"].Id/orders/new'>Add a new order</a></p>
-<p><a href='/vendors'>Return to vendor list</a></p>
-<p><a href='/'>Return to Main Page</a></p>
+<a href='/vendors/@Model["vendor"].Id/orders/new'><button type="button">Add a new order</button></a>
+<a href='/vendors'><button type="button">Return to vendor list</button></a>
+<a href='/'><button type="button">Return to Main Page</button></a>

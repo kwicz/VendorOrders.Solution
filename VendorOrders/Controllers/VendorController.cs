@@ -46,8 +46,8 @@ namespace VendorOrders.Controllers
       Order newOrder = new Order(product, quantity);
       foundVendor.AddOrder(newOrder);
       List<Order> vendorOrders = foundVendor.Orders;
-      model.Add("Orders", vendorOrders);
-      model.Add("Vendor", foundVendor);
+      model.Add("orders", vendorOrders);
+      model.Add("vendor", foundVendor);
       return View("Show", model);
     }
   }

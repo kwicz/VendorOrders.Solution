@@ -1,0 +1,10 @@
+
+<h1>Order details:</h1>
+
+<h2>Product Name: @Model["orders"].Product</h2>
+<h2>Quanity Ordered: @Model["orders"].Quantity</h2>
+<h2>Vendor: @Model["vendor"].Name</h2>
+
+<a href='/vendors/@Model["vendor"].Id/orders/new'><button type="button">Add a new order</button></a>
+<a href='/vendors'><button type="button">Return to vendor list</button></a>
+<a href='/'><button type="button">Return to Main Page</button></a>
