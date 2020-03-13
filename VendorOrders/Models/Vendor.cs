@@ -9,7 +9,7 @@ namespace VendorOrders.Models
     public string Phone { get; set; }
     public string Email { get; set; }
     public int Id { get; }
-    public List<VendorOrders> Orders { get; set; }
+    public List<Order> Orders { get; set; }
     private static List<Vendor> _instances = new List<Vendor> {};
 
     public Vendor(string name, string address, string phone, string email)
@@ -23,6 +23,11 @@ namespace VendorOrders.Models
       Orders = new List<Order> {};
     }
 
+    public static List<Vendor> GetAll()
+    {
+      return _instances;
+    }
+    
     public static void ClearAll()
     {
       _instances.Clear();

@@ -5,11 +5,11 @@
 @if (@Model.Count == 0)
 {
   <h3>You have no vendors!</h3>
-  <a href=""><button type="submit">Add a New Vendor</button></a>
+  <a href="/vendors/new"><button type="submit">Add a New Vendor</button></a>
 }
 @foreach (Vendor vendor in Model)
 {
-  <h3><a href="">@vendor.Name</a></h3>
+  <h3><a href="/vendors/@vendor.Id">@vendor.Name</a></h3>
 }
 
   <a href="/"><button type="submit">Back Home</button></a>

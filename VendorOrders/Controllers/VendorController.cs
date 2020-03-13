@@ -5,7 +5,7 @@ using VendorOrders.Models;
 
 namespace VendorOrders.Controllers
 {
-  public class VendorsController : Controllers
+  public class VendorsController : Controller
   {
     [HttpGet("/vendors")]
     public ActionResult Index()
@@ -25,6 +25,30 @@ namespace VendorOrders.Controllers
     {
       Vendor newVendor = new Vendor(name, address, phone, email);
       return RedirectToAction("Index");
+    }
+
+    [HttpGet("vendors/{id}")]
+    public ActionResult Show(int id)
+    {
+      Dictionary<string, object> model = new Dictionary<string, object>();
+      Vendor selectedVendor = Vendor.Find(id);
+      List<Order> vendorOrders = selectedVendor.Orders;
+      model.Add("vendor", selectedVendor);
+      model.Add("orders", vendorOrders);
+      return View(model);
+    }
+
+    [HttpPost("/vendors/{vendorId}/orders")]
+    public ActionResult Create(int vendorId, string product, int quantity)
+    {
+      Dictionary<string, object> model = new Dictionary<string, object>();
+      Vendor foundVendor = Vendor.Find(vendorId);
+      Order newOrder = new Order(product, quantity);
+      foundVendor.AddOrder(newOrder);
+      List<Order> vendorOrders = foundVendor.Orders;
+      model.Add("Orders", vendorOrders);
+      model.Add("Vendor", foundVendor);
+      return View("Show", model);
     }
   }
 }
