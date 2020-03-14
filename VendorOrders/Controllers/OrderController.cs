@@ -36,8 +36,16 @@ namespace VendorOrders.Controllers
     public ActionResult DeleteAll()
     {
       Order.ClearAll();
-      return View();
+      return RedirectToAction("Index");
     }
+
+    // [HttpPost("/orders/delete/{orderId}")]
+    // public ActionResult DeleteOne()
+    // {
+    //   int id = this.Id
+    //   Order.ClearAll();
+    //   return View();
+    // }
 
   }
 }
