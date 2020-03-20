@@ -1,4 +1,4 @@
-# _Word Counter_
+# _Vendor Orders_
 
 #### _A MVC Application that tracks vendors and their orders, March 2020_
 
